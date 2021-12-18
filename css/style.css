@@ -1,0 +1,389 @@
+
+/*全体　共通
+最初から設定してあるので特に変更
+しなくても大丈夫です♪
+-----------------*/
+body{
+	font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+	max-width:1800px; /*ページ全体の幅は100%と指定する*/
+	margin: 0 auto;
+	text-align: center;
+	background-image: url(../img/game_bg_01.svg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	animation: big-bg 80s ease-in infinite;	
+}
+@keyframes big-bg{
+	from{
+		background-position: 0 -175vh;
+	}
+	to{
+		background-position: 0 bottom;
+	}
+
+}
+/*　パディングをサイズ内側にする処理　*/
+* {
+	padding:0;
+	margin:0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.pointer{
+	cursor: pointer;
+}
+/* 上に戻るボタン */
+
+
+#page_top{
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 10px;
+  bottom: 90px;
+  background-color: #707070;
+  opacity: 0.7;
+}
+#page_top:hover{
+	opacity: 0.5;
+}
+#page_top a{
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-weight: 900;
+  content: '↑';
+  font-size: 50px;
+  color: white;
+}
+
+
+
+/*ーーーーーーーーーーー*/
+/*この下から記述*/
+/*ーーーーーーーーーーー*/
+
+
+
+
+
+/*headerの設定
+---------------------*/
+header{
+	background-image: url(../img/mainbg.png);
+	background-position: center;
+	background-size: cover;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+}
+header h1{
+	font-size: 48px;
+}
+header h2{
+	font-size: 36px;
+	font-weight: normal;
+}
+/*navの設定
+---------------------*/
+nav{
+	height: 80px;
+	border-bottom:solid 1px #efefef;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 21px;
+}
+nav img{
+	padding-left: 20px;
+	height: 60px;
+}
+nav h1:hover{
+	opacity: 0.7;
+}
+nav ul{
+	display: flex;
+}
+nav li{
+	display: flex;
+	align-items: center;
+}
+nav li a{
+	display: block;
+	width: 150px;
+	padding: 20px;
+	color: black;
+}
+nav li a:hover{
+	background-color: #bfbfbf;
+}
+/*コンテンツの中央寄せ
+---------------------*/
+.contents{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+/*見出しの文字の設定
+---------------------*/
+.About h3,
+.News h3{
+	font-size: 24px;
+	color: #ffd61a;
+}
+.Course h3,h4,
+.Access h3,
+.Contact h3{
+	font-size: 24px;
+	color: #222222;
+}
+/*About
+---------------------*/
+
+.About{
+	padding-top: 120px;
+}
+.About p:nth-of-type(1){
+	margin-top: 24px;
+}
+.About p:nth-of-type(2){
+	margin-top: 64px;
+}
+.About p:nth-of-type(n+3){
+	margin-top: 40px;
+}
+/*スライドショーの設定
+------------------*/
+.wrap_slideshow{
+	max-width: 1800px;
+	display: flex;
+ 	align-items: center;
+	height: 340px;
+	overflow: hidden;
+}
+.slideshow{
+	display: flex;
+	animation: loop-slide 20s infinite linear 1s both;
+}
+.wrap_slideshow:hover .slideshow{
+	animation-play-state: paused;
+}
+@keyframes loop-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* ちょっと上がる設定 */
+.slideshow li:hover{
+	transform: translateY(-5px);
+	border-radius: 0 10%;
+	box-shadow: 0 3px 10px 0 #333;
+	opacity: 1.1;
+}
+
+/*Course
+---------------------*/
+
+.Course{
+	padding-top: 64px;
+}
+.Course p{
+	margin-top: 24px;
+}
+.Course table{
+	background-color: #fafafa;
+	text-align: left;
+	margin-top: 64px;
+}
+.Course tr{
+	display: flex;
+	align-items: center;
+	min-width: 1200px;
+}
+.Course th{
+	width: 50%;
+}
+.Course img{
+	width: 100%;
+}
+.Course td{
+	width: 50%;
+}
+.Course tr:nth-of-type(2n+1) td{
+	display: flex;
+	align-items: center;
+}
+.Course tr:nth-of-type(2n) td{
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+.Course .text{
+	margin: 0 48px;
+}
+/*News
+---------------------*/
+
+.News{
+	padding-top: 64px;
+	padding-bottom: 48px;
+}
+.News table{
+	text-align: left;
+	margin-top: 64px;
+	border-collapse: separate;
+	border-spacing: 32px;
+	font-size: 14px;
+}
+/*Moreの設定
+------------------*/
+.hidden_box {
+    margin: 2em 0;/*前後の余白*/
+    padding: 0;
+}
+
+/*ボタン装飾*/
+.hidden_box label {
+    padding: 20px 120px;
+	font-size: 21px;
+    font-weight: bold;
+	color: white;
+    cursor :pointer;
+	background: #ffd61a;
+}
+
+/*ボタンホバー時*/
+.hidden_box label:hover {
+    opacity: 0.7;
+}
+
+/*チェックは見えなくする*/
+.hidden_box input {
+    display: none;
+}
+
+/*中身を非表示にしておく*/
+.hidden_box .hidden_show {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+    height: auto;
+    opacity: 1;
+}
+/*------------------
+Moreの設定　終*/
+
+/*Access
+---------------------*/
+.Access{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 64px;
+	padding-bottom: 80px;
+	background-color: #fafafa;
+}
+.Access iframe{
+	padding: 64px;
+}
+.Access table{
+	text-align: left;
+	border-collapse: separate;
+	border-spacing: 48px 12px;
+	font-size: 14px;
+}
+
+/*Contact
+---------------------*/
+.Contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 64px;
+	padding-bottom: 80px;
+}
+.Contact p:nth-of-type(1){
+	margin-bottom: 64px;
+}
+.Contact p:nth-of-type(2){
+	margin-bottom: 32px;
+}
+
+.Contact table{
+	margin-top: 60px;
+	margin-bottom: 20px;
+	text-align: left;
+	border-collapse: separate;
+	border-spacing: 120px 24px;
+}
+.Contact th{
+	vertical-align: top;
+}
+.Contact input[type="text"],input[type="email"]{
+	width: 400px;
+	height: 36px;
+	border: solid 1px #bfbfbf;
+  	border-radius:5px;
+  	padding:10px;
+}
+.Contact li{
+	margin-bottom: 12px;
+}
+.Contact input[type="checkbox"]{
+	margin-right: 40px;
+	cursor :pointer;
+}
+.Contact textarea{
+	width: 400px;
+	height: 108px;
+	border: solid 1px #bfbfbf;
+  	border-radius:5px;
+  	padding:10px;
+}
+.Contact input[type="submit"]{
+    padding: 20px 140px;
+	font-size: 18px;
+	color: white;
+    cursor :pointer;
+	background: #ffd61a;
+}
+.Contact input[type="submit"]:hover{
+	opacity: 0.7;
+}
+
+/*footerの設定
+---------------------*/
+footer{
+	height: 82px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #707070;
+	font-size: 18px;
+	color: white;
+}
+
+
+/*
+---------------------*/
